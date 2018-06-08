@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+
+    <!-- 配置事务增强处理Bean，指定事务管理器 -->
+    <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+        <!-- 配置详细事务处理语义 -->
+        <tx:attributes>
+            <tx:method name="create*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="insert*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="add*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="upd*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="del*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="execute*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="do*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="save*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="set*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="get*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="show*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="list*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="select*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="query*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="has*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="ntx*" propagation="NOT_SUPPORTED"/>
+            <tx:method name="*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- Spring aop事务管理 -->
+    <aop:config>
+        <!-- 配置切入点 -->
+        <aop:pointcut id="transactionPointcut"
+                      expression="execution(* com.jzp.service.*.*(..))"/>
+        <!-- 指定在txAdvice切入点应用txAdvice事务增强处理 -->
+        <aop:advisor pointcut-ref="transactionPointcut"
+                     advice-ref="transactionAdvice"/>
+    </aop:config>
+
+
+    <tx:annotation-driven/>
+
+
+
+
+
+</beans>
