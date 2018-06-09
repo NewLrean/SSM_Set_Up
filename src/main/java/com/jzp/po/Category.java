@@ -1,9 +1,11 @@
-package com.jzp.domain;
+package com.jzp.po;
+
+import com.jzp.domain.BaseEntity;
 
 /**
  * Created by 蒋志鹏 on 2018/6/8.
  */
-public class Category {
+public class Category extends BaseEntity{
     private String id;
     private String name;
     private String description;

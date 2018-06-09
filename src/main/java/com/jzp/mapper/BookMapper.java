@@ -1,7 +1,8 @@
-package com.jzp.dao;
+package com.jzp.mapper;
 
-import com.jzp.domain.Book;
+import com.jzp.po.Book;
 import org.springframework.stereotype.Repository;
+import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  */
 
 @Repository
-public interface IBookDao {
+public interface BookMapper {
 
     List<Book> findAllBook();
 }

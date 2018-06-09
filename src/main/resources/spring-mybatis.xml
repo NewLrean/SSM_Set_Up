@@ -57,7 +57,7 @@
         </property>
 
         <!-- 设置别名包 -->
-        <property name="typeAliasesPackage" value="com.jzp.domain   "></property>
+        <property name="typeAliasesPackage" value="com.jzp.mapper"></property>
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageInterceptor">
@@ -77,8 +77,8 @@
 
     </bean>
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.jzp.dao"></property>
+    <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.jzp.mapper"></property>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 

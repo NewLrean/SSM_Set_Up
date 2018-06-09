@@ -5,30 +5,30 @@
     namespace：必须与对应的接口全类名一致  UserMapper.java
     id ：必须与对应接口的某个对应的方法名一致即必须要和UserMapper.java接口中的方法同名。
  -->
-<mapper namespace="com.jzp.dao.IUserDao">
+<mapper namespace="com.jzp.mapper.UserMapper">
 
     <!-- 新增用户-->
-    <insert id="saveUser" parameterType="com.jzp.domain.User">
+    <insert id="saveUser" parameterType="com.jzp.po.User">
         insert into user(id,username,password,phone,address) value(#{id},#{username},#{password},#{phone},#{address})
     </insert>
     <!-- 修改用户 -->
-    <update id="updateUser" parameterType="com.jzp.domain.User">
+    <update id="updateUser" parameterType="com.jzp.po.User">
         update user set username=#{username},phone=#{phone},address=#{address} where id=#{id}
     </update>
     <!-- 删除用户 -->
-    <delete id="deleteUser" parameterType="com.jzp.domain.User">
+    <update id="deleteUser" parameterType="com.jzp.po.User">
         update user set tag=0 where id = #{id}
-    </delete>
+    </update>
     <!-- 根据id查找用户 -->
-    <select id="queryUserById" parameterType="String" resultType="com.jzp.domain.User">
+    <select id="queryUserById" parameterType="String" resultType="com.jzp.po.User">
         select * from user where id=#{id} and tag=1
     </select>
     <!-- 查询所有用户 -->
-    <select id="queryAllUser" resultType="com.jzp.domain.User">
+    <select id="queryAllUser" resultType="com.jzp.po.User">
         select * from user where tag=1
     </select>
 
-    <select id="selectBylogin" resultType="com.jzp.domain.User">
+    <select id="selectBylogin" resultType="com.jzp.po.User">
         SELECT * from user where tag=1 and username = #{0} and password = #{1}
     </select>
 </mapper>

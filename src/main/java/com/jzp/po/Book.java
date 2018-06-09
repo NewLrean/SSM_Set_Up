@@ -1,28 +1,58 @@
-package com.jzp.domain;
+package com.jzp.po;
+
+import com.jzp.domain.BaseEntity;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Created by 蒋志鹏 on 2018/6/8.
  */
-public class Book extends Category{
+
+@Table(name="books")
+public class Book extends BaseEntity{
+
+    @Id
     private String id;
+    @Column(name="title")
     private String title;
+    @Column(name="author")
     private String author;
+    @Column(name="publisherId")
     private String publisherId;
+    @Column(name="publishDate")
     private String publishDate;
+    @Column(name="isbn")
     private String isbn;
+    @Column(name="wordsCount")
     private int wordsCount;
+    @Column(name="unitPrice")
     private float unitPrice;
+    @Column(name="contentDescription")
     private String contentDescription;
+    @Column(name="aurhorDescription")
     private String aurhorDescription;
+    @Column(name="editorComment")
     private String editorComment;
+    @Column(name="toc")
     private String toc;
+    @Column(name="categoryId")
     private String categoryId;
+    @Column(name="clicks")
     private int clicks;
+    @Column(name="booksImages")
     private String booksImages;
+    @Column(name="quantity")
     private int quantity;
+    @Column(name="souhuo")
     private String souhuo;
+    @Column(name="address")
     private String address;
+    @Column(name="baoyou")
     private String baoyou;
+
+
     private Category category;
 
     public Category getCategory() {

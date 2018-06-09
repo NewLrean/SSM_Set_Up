@@ -1,6 +1,6 @@
 package com.jzp.service;
 
-import com.jzp.domain.User;
+import com.jzp.po.User;
 
 import java.util.List;
 

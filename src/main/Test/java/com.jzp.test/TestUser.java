@@ -1,21 +1,16 @@
 package com.jzp.test;
 
 
-import com.jzp.dao.IUserDao;
-import com.jzp.domain.Book;
-import com.jzp.domain.User;
+import com.jzp.po.Book;
+import com.jzp.po.User;
 import com.jzp.service.BookService;
 import com.jzp.service.UserService;
 import com.jzp.util.IdGenrtor;
 import com.jzp.util.SecurityUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -63,6 +58,15 @@ public class TestUser {
         List<Book> allBook = bookService.findAllBook();
         System.out.println(allBook.get(0));
         System.out.println(allBook.get(0).getCategory());
+    }
+
+
+    @Test
+    public void findUser(){
+        User user=new User();
+        user.setUsername("admin55");
+        user.setPassword("123123");
+
     }
 
 }

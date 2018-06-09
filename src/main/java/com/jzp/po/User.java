@@ -1,13 +1,26 @@
-package com.jzp.domain;
+package com.jzp.po;
+
+import com.jzp.domain.BaseEntity;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Created by 蒋志鹏 on 2018/6/6.
  */
-public class User {
+
+@Table(name = "user")
+public class User extends BaseEntity{
+    @Id
     private String id;
+    @Column(name = "username")
     private String username;
+    @Column(name = "password")
     private String password;
+    @Column(name = "phone")
     private String phone;
+    @Column(name = "address")
     private String address;
 
     public String getId() {

@@ -1,8 +1,8 @@
-package com.jzp.dao;
+package com.jzp.mapper;
 
-import com.jzp.domain.User;
+import com.jzp.po.User;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 @Repository
-public interface IUserDao {
+public interface UserMapper {
     void saveUser(User user);
 
     boolean updateUser(User user);

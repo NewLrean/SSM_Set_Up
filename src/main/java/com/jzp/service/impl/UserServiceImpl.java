@@ -1,12 +1,9 @@
 package com.jzp.service.impl;
 
-import com.jzp.dao.IUserDao;
-import com.jzp.domain.User;
+import com.jzp.mapper.UserMapper;
+import com.jzp.po.User;
 import com.jzp.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -16,11 +13,11 @@ import java.util.List;
  */
 
 @Service
-@Transactional
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl  implements UserService{
+
 
     @Resource
-    private IUserDao iUserDao;
+    private UserMapper iUserDao;
 
 
     @Override
@@ -54,4 +51,6 @@ public class UserServiceImpl implements UserService{
     public User selectBylogin(String username, String password) {
         return iUserDao.selectBylogin(username,password);
     }
+
+
 }
