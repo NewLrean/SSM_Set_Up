@@ -50,7 +50,7 @@
         <!--数据源配置-->
         <property name="dataSource" ref="dataSource"></property>
 
-
+        <property name="configLocation" value="classpath:mybatis.xml"></property>
 
         <!--告诉spring，mybatisMpapper配置文件位置-->
         <property name="mapperLocations" value="classpath*:com/jzp/mapper/*Mapper.xml">
@@ -82,7 +82,7 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 
-
+    <!--开启aop扫描-->
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
      <!--(事务管理)transaction manager, use JtaTransactionManager for global tx -->

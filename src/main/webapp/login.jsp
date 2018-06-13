@@ -21,7 +21,7 @@
 <body>
 <h2>登录界面</h2>
 
-<form action="/user/LoginController/login" method="post">
+<form action="/user/LoginController/login.action" method="post">
     <table align="center">
         <tr><td><input type="text" name="username" required="required"/></td></tr>
         <tr><td><input type="password" name="password" required="required"/></td></tr>

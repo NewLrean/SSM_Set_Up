@@ -7,7 +7,7 @@
         <id property="id" column="id" ></id>
         <result property="title" column="title"></result>
         <result property="author" column="author"></result>
-        <result property="publisherId" column="publisherId"></result>
+
         <result property="publishDate" column="publishDate"></result>
         <result property="isbn" column="isbn"></result>
         <result property="wordsCount" column="wordsCount"></result>
@@ -16,7 +16,7 @@
         <result property="aurhorDescription" column="aurhorDescription"></result>
         <result property="toc" column="toc"></result>
         <result property="editorComment" column="editorComment"></result>
-        <result property="categoryId" column="categoryId"></result>
+
         <result property="clicks" column="clicks"></result>
         <result property="booksImages" column="booksImages"></result>
         <result property="quantity" column="quantity"></result>
@@ -29,10 +29,18 @@
             <result property="description" column="description"></result>
         </association>
 
+        <association property="publisher" javaType="com.jzp.po.Publisher">
+            <id property="id" column="pid" ></id>
+            <result property="name" column="pname"></result>
+            <result property="description" column="pdescription"></result>
+        </association>
+
+
     </resultMap>
 
     <select id="findAllBook" resultMap="bookMap">
-        SELECT * from books b INNER JOIN categories c on b.categoryId = c.id where b.tag= 1
+        SELECT *,c.*,p.id pid,p.name pname,p.description pdescription from books b INNER JOIN categories c on b.categoryId = c.id
+        INNER JOIN publishers p on b.publisherId = p.id where b.tag= 1
     </select>
 
 </mapper>

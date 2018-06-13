@@ -3,6 +3,7 @@ package com.jzp.service.impl;
 import com.jzp.mapper.BookMapper;
 import com.jzp.po.Book;
 import com.jzp.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,7 +15,7 @@ import java.util.List;
 @Service
 public class BookServiceImpl extends BaseServiceImpl<Book> implements BookService {
 
-    @Resource
+    @Autowired
     BookMapper iBookDao;
 
 

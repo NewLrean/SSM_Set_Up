@@ -19,8 +19,6 @@ public class Book extends BaseEntity{
     private String title;
     @Column(name="author")
     private String author;
-    @Column(name="publisherId")
-    private String publisherId;
     @Column(name="publishDate")
     private String publishDate;
     @Column(name="isbn")
@@ -37,8 +35,6 @@ public class Book extends BaseEntity{
     private String editorComment;
     @Column(name="toc")
     private String toc;
-    @Column(name="categoryId")
-    private String categoryId;
     @Column(name="clicks")
     private int clicks;
     @Column(name="booksImages")
@@ -53,7 +49,19 @@ public class Book extends BaseEntity{
     private String baoyou;
 
 
+
     private Category category;
+
+
+    private Publisher publisher;
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
 
     public Category getCategory() {
         return category;
@@ -87,13 +95,7 @@ public class Book extends BaseEntity{
         this.author = author;
     }
 
-    public String getPublisherId() {
-        return publisherId;
-    }
 
-    public void setPublisherId(String publisherId) {
-        this.publisherId = publisherId;
-    }
 
     public String getPublishDate() {
         return publishDate;
@@ -159,13 +161,7 @@ public class Book extends BaseEntity{
         this.toc = toc;
     }
 
-    public String getCategoryId() {
-        return categoryId;
-    }
 
-    public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId;
-    }
 
     public int getClicks() {
         return clicks;
@@ -222,7 +218,6 @@ public class Book extends BaseEntity{
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", publisherId='" + publisherId + '\'' +
                 ", publishDate='" + publishDate + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", wordsCount=" + wordsCount +
@@ -231,7 +226,6 @@ public class Book extends BaseEntity{
                 ", aurhorDescription='" + aurhorDescription + '\'' +
                 ", editorComment='" + editorComment + '\'' +
                 ", toc='" + toc + '\'' +
-                ", categoryId='" + categoryId + '\'' +
                 ", clicks=" + clicks +
                 ", booksImages='" + booksImages + '\'' +
                 ", quantity=" + quantity +

@@ -3,13 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <typeAliases>
+    <!--<typeAliases>
         <package name="com.jzp.domain"/>
     </typeAliases>
 
-    <!-- mybatis分页插件 -->
+    &lt;!&ndash; mybatis分页插件 &ndash;&gt;
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageHelper"></plugin>
-    </plugins>
+    </plugins>-->
 
 </configuration>

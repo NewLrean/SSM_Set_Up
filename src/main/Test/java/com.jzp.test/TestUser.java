@@ -58,6 +58,7 @@ public class TestUser {
         List<Book> allBook = bookService.findAllBook();
         System.out.println(allBook.get(0));
         System.out.println(allBook.get(0).getCategory());
+        System.out.println(allBook.get(0).getPublisher());
     }
 
 
