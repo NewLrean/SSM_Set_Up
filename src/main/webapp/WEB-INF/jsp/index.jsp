@@ -19,34 +19,12 @@
     </style>
 </head>
 <body>
-<form action="/user/LoginController/down.action" method="get">
+<form action="${ctx}/user/LoginController/down.action" method="get">
     <input type="hidden" name="fileName" value="upload/2018-06-12/chrome-200.png">
     <img src="${ctx}/upload/2018-06-12/chrome-200.png">
     <input type="submit" value="下载">
 </form>
 
 登陆成功！
-
-<h2>以下是所有书籍</h2>
-
-<table align="center" cellpadding="0" cellspacing="0">
-<tr>
-    <th>书籍名称</th>
-    <th>单价</th>
-    <th>作者</th>
-    <th>图书类型</th>
-    <th>操作</th>
-</tr>
-
-    <c:forEach items="${allBook}" var="b">
-        <tr>
-            <td>${b.title}</td>
-            <td>${b.unitPrice}</td>
-            <td>${b.author}</td>
-            <td>${b.category.name}</td>
-            <td></td>
-        </tr>
-    </c:forEach>
-</table>
 </body>
 </html>
